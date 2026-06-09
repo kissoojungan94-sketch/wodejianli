@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 — 安兴惠</title>
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+            background: #F9F3EE;
+            color: #2C2C2C;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* ===== Navigation (顶部导航栏) ===== */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 56px;
+            z-index: 1000;
+            background: #F9F3EE;
+            border-bottom: 1px solid #E8E0D8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            max-width: 900px;
+            width: 100%;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3D3D3D;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            margin-left: auto;
+        }
+        .nav-links li {
+            padding: 6px 14px;
+            font-size: 14px;
+            color: #6B6B6B;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            user-select: none;
+            white-space: nowrap;
+        }
+        .nav-links li:hover { color: #2C2C2C; background: #F0E8E0; }
+        .nav-links li.active {
+            color: #2C2C2C;
+            background: #F2D8CE;
+            font-weight: 600;
+        }
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 12px;
+            z-index: 1001;
+            font-size: 20px;
+            cursor: pointer;
+            color: #3D3D3D;
+            padding: 6px 10px;
+            background: #F9F3EE;
+            border-radius: 6px;
+            border: 1px solid #E8E0D8;
+            user-select: none;
+        }
+        .hamburger:hover { color: #2C2C2C; }
+
+        /* ===== Left Info Sidebar ===== */
+        .info-sidebar {
+            position: fixed;
+            top: 56px; left: 0; bottom: 0;
+            width: 220px;
+            background: #F9F3EE;
+            border-right: 1px solid #E8E0D8;
+            padding: 32px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            overflow-y: auto;
+        }
+        .info-sidebar .avatar-small {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: linear-gradient(135deg, #F2D8CE 0%, #E8D5C4 100%);
+        }
+        .info-sidebar .name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2C2C2C;
+            text-align: center;
+        }
+        .info-sidebar .info-item {
+            width: 100%;
+            text-align: left;
+            padding: 8px 0;
+            border-top: 1px solid #E8E0D8;
+        }
+        .info-sidebar .info-item .label {
+            font-size: 11px;
+            color: #8A8A8A;
+            margin-bottom: 2px;
+        }
+        .info-sidebar .info-item .value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2C2C2C;
+        }
+
+        /* ===== Main & Sections ===== */
+        main {
+            margin-top: 56px;
+            margin-left: 220px;
+            padding: 48px 48px 40px;
+            min-height: 100vh;
+        }
+        .content-section {
+            display: none;
+            animation: fadeUp 0.35s ease;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .content-section.active { display: block; }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(12px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #2C2C2C;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -4px;
+            width: 100%;
+            height: 3px;
+            background: #F2D8CE;
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #8A8A8A;
+            margin-bottom: 36px;
+            margin-top: 6px;
+        }
+
+        /* ===== Home / Hero ===== */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            padding: 48px 0 24px;
+            flex-wrap: wrap;
+        }
+        .hero-info { flex: 1; min-width: 280px; }
+        .hero-info .role {
+            font-size: 14px;
+            color: #D4A89E;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .hero-info h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 6px;
+        }
+        .hero-info .tagline {
+            font-size: 18px;
+            color: #6B6B6B;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+        .hero-info .bio {
+            font-size: 15px;
+            color: #5A5A5A;
+            max-width: 560px;
+            line-height: 1.8;
+        }
+
+        /* Avatar placeholder fallback — keeps layout intact without image */
+        .avatar-wrapper {
+            flex-shrink: 0;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F2D8CE 0%, #E8D5C4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .avatar-wrapper svg.person-icon {
+            width: 80px;
+            height: 80px;
+            fill: #FFFFFF;
+            opacity: 0.7;
+        }
+        .avatar-wrapper img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 50%;
+        }
+        .avatar-wrapper img.loaded { opacity: 1; }
+
+        /* ===== Work Experience (Timeline) ===== */
+        .timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #E8E0D8;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 20px;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #F2D8CE;
+            border: 3px solid #F9F3EE;
+            box-shadow: 0 0 0 2px #F2D8CE;
+        }
+        .timeline-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .timeline-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2C2C2C;
+        }
+        .timeline-header .company { font-size: 14px; color: #D4A89E; font-weight: 600; }
+        .timeline-header .period {
+            font-size: 13px;
+            color: #8A8A8A;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .timeline-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline-body ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #5A5A5A;
+            line-height: 1.7;
+        }
+        .timeline-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #D4A89E;
+            opacity: 0.5;
+        }
+        .highlight-num { color: #D4A89E; font-weight: 700; }
+        .result-box {
+            margin-top: 10px;
+            padding: 12px 16px;
+            background: #F5EFEA;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #4A4A4A;
+            border-left: 3px solid #F2D8CE;
+        }
+
+        /* ===== Project Cards ===== */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .project-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            border: 1px solid #EFEBE6;
+        }
+        .project-card:hover {
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+            transform: translateY(-4px);
+        }
+        .project-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 4px;
+        }
+        .project-card .project-meta {
+            font-size: 13px;
+            color: #D4A89E;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .project-card .project-period {
+            font-size: 12px;
+            color: #8A8A8A;
+            margin-bottom: 10px;
+        }
+        .project-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .project-card ul li {
+            font-size: 13px;
+            color: #5A5A5A;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
+        .project-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 9px;
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #D4A89E;
+            opacity: 0.5;
+        }
+
+        /* ===== Education ===== */
+        .edu-placeholder {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 48px 32px;
+            text-align: center;
+            border: 1px dashed #D4C8BE;
+        }
+        .edu-placeholder .icon { font-size: 36px; margin-bottom: 12px; opacity: 0.5; }
+        .edu-placeholder p { color: #8A8A8A; font-size: 15px; }
+
+        /* ===== Skills ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .skill-category {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #EFEBE6;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .skill-category h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .skill-item {
+            margin-bottom: 14px;
+        }
+        .skill-item:last-child { margin-bottom: 0; }
+        .skill-item .skill-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #4A4A4A;
+            margin-bottom: 4px;
+        }
+        .skill-item .skill-label span:last-child { color: #8A8A8A; font-size: 12px; }
+        .skill-bar {
+            height: 6px;
+            background: #F0E8E0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #F2D8CE, #D4A89E);
+            width: 0;
+            transition: width 0.8s ease;
+        }
+        .skill-bar-fill.animate { /* width set by JS */ }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .skill-tag {
+            padding: 3px 10px;
+            background: #F5EFEA;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #6B6B6B;
+        }
+        .skill-tag.accent { background: #F2D8CE; color: #4A4A4A; }
+
+        /* ===== Certificates ===== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .cert-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #EFEBE6;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .cert-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+            transform: translateY(-3px);
+        }
+        .cert-card .cert-icon { font-size: 28px; margin-bottom: 10px; }
+        .cert-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2C2C2C;
+            margin-bottom: 4px;
+        }
+        .cert-card p {
+            font-size: 13px;
+            color: #8A8A8A;
+        }
+
+        /* ===== Portfolio Placeholder ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .portfolio-placeholder {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 48px 20px;
+            border: 1px dashed #D4C8BE;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .portfolio-placeholder:hover {
+            border-color: #F2D8CE;
+            background: #FCF8F5;
+        }
+        .portfolio-placeholder .icon { font-size: 32px; opacity: 0.35; margin-bottom: 8px; }
+        .portfolio-placeholder p { font-size: 14px; color: #8A8A8A; }
+
+        /* ===== Portfolio Cards ===== */
+        .portfolio-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+            border: 1px solid #EFEBE6;
+        }
+        .portfolio-card:hover {
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+            transform: translateY(-4px);
+        }
+        .portfolio-card .thumb {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+        .portfolio-card .info {
+            padding: 16px 20px 20px;
+        }
+        .portfolio-card .info h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2C2C2C;
+            margin-bottom: 6px;
+        }
+        .portfolio-card .info p {
+            font-size: 13px;
+            color: #6B6B6B;
+            line-height: 1.6;
+        }
+        .portfolio-card .info .play-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #D4A89E;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .portfolio-card .info .play-link:hover { color: #C48E82; }
+
+        /* ===== Footer ===== */
+        footer {
+            margin-left: 220px;
+            text-align: center;
+            padding: 32px 24px;
+            color: #8A8A8A;
+            font-size: 13px;
+            border-top: 1px solid #E8E0D8;
+            margin-top: 48px;
+        }
+        footer span { color: #D4A89E; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .info-sidebar { display: none; }
+            main { margin-left: 0; }
+            .project-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: 1fr 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                justify-content: flex-start;
+                padding: 0 16px;
+            }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 56px; left: 0; right: 0;
+                flex-direction: column;
+                background: #F9F3EE;
+                border-bottom: 1px solid #E8E0D8;
+                padding: 8px 16px;
+                gap: 2px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: block; }
+
+            main { margin-left: 0; padding: 64px 16px 32px; }
+            footer { margin-left: 0; }
+
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 24px; gap: 24px; }
+            .hero-info .bio { max-width: 100%; }
+            .avatar-wrapper { width: 140px; height: 140px; }
+            .avatar-wrapper svg.person-icon { width: 60px; height: 60px; }
+
+            .hero-info h1 { font-size: 28px; }
+            .hero-info .tagline { font-size: 16px; }
+
+            .skills-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+
+            .timeline { padding-left: 24px; }
+            .timeline-item { padding-left: 14px; }
+            .timeline-dot { left: -24px; width: 12px; height: 12px; }
+            .timeline::before { left: 7px; }
+            .timeline-header { flex-direction: column; gap: 2px; }
+            .timeline-header .period { margin-left: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-info h1 { font-size: 24px; }
+            .section-title { font-size: 22px; }
+            .project-card { padding: 20px; }
+            .skill-category { padding: 18px; }
+            .cert-card { padding: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Navigation (顶部导航栏) ===== -->
+    <div class="hamburger" id="hamburger">☰</div>
+    <header>
+        <nav>
+            <div class="logo">安兴惠</div>
+            <ul class="nav-links" id="navLinks">
+                <li data-section="home" class="active">关于我</li>
+                <li data-section="experience">工作经历</li>
+                <li data-section="projects">项目经历</li>
+                <li data-section="skills">技能特长</li>
+                <li data-section="certificates">证书荣誉</li>
+                <li data-section="portfolio">作品展示</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== 左侧个人信息栏 ===== -->
+    <div class="info-sidebar">
+        <img class="avatar-small" src="avatar.jpg" alt="安兴惠" onerror="this.style.display='none'">
+        <div class="name">安兴惠</div>
+        <div class="info-item">
+            <div class="label">基本信息</div>
+            <div class="value">28 岁 · 女 · 贵州贵定</div>
+        </div>
+        <div class="info-item">
+            <div class="label">手机</div>
+            <div class="value">19185368325</div>
+        </div>
+        <div class="info-item">
+            <div class="label">邮箱</div>
+            <div class="value">2453314101@qq.com</div>
+        </div>
+        <div class="info-item">
+            <div class="label">毕业时间</div>
+            <div class="value">2016.09 – 2020.06</div>
+        </div>
+        <div class="info-item">
+            <div class="label">学校</div>
+            <div class="value">黑龙江工程学院</div>
+        </div>
+        <div class="info-item">
+            <div class="label">专业</div>
+            <div class="value">网络与新媒体</div>
+        </div>
+    </div>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+
+        <!-- ===== 关于我 ===== -->
+        <section id="section-home" class="content-section active">
+            <div class="hero">
+                <div class="hero-info">
+                    <h1>Hi，我叫安兴惠</h1>
+                    <p class="tagline">内容创作 × 活动策划 × 资源整合 × AI 赋能</p>
+                     <p class="bio">
+                        具备品牌策划与总经理助理双重实战经验，擅长内容创作与活动策划执行；拥有跨部门资源协调、重大项目全流程管理及商务对接能力；对 AI 科技、教育以及旅游行业有强烈兴趣，能快速适应新业务场景并推动落地。
+                    </p>
+                </div>
+                <div class="avatar-wrapper" id="avatarWrapper">
+                    <!-- Person icon SVG — CSS fallback when no avatar image is available -->
+                    <svg class="person-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/>
+                    </svg>
+                    <img id="avatar" alt="个人头像">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 工作经历 ===== -->
+        <section id="section-experience" class="content-section">
+            <h2 class="section-title">工作经历</h2>
+            <p class="section-subtitle">三段职业经历 · 从项目助理到品牌策划的成长路径</p>
+
+            <div class="timeline">
+
+                <!-- 国网浙江建设公司 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <h3>品牌策划</h3>
+                        <span class="company">国网浙江建设公司</span>
+                        <span class="period">2021.07 – 至今</span>
+                    </div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li><strong>内容体系搭建与内容运营</strong>：参与设计并落地基于公司业务的内容中台系统（选题管理、素材库、审核管理、智能分发、数据反馈五大模块），实现内容生产标准化与流程可复制化；2023 年全年累计输出项目制内容&nbsp;<strong>200+ 条</strong>，覆盖品牌宣传、项目推进、社会责任、户外及舞台活动等多场景策划，<strong>累计触达 500 万人次</strong>，内容复用率提升 40%。具备独立完成选题策划、多平台内容分发及运营闭环的能力。</li>
+                            <li><strong>跨部门整合传播与资源协调</strong>：参与制定统一传播策略，协调总部、区域公司及地方单位资源，联动央级媒体（央视财经、人民日报、新华社等）及主流商业媒体共&nbsp;<strong>118 家</strong>，实现央媒报道覆盖率 100%，积累了丰富的媒体对接与外部关系维护经验。</li>
+                            <li><strong>重大项目品牌化与成果申报</strong>：参与&nbsp;<strong>10 个省部级以上重点工程</strong>的品牌传播全流程管理，涵盖亮点提炼、新闻通稿撰写、媒体对接、广告设计、舆情预判与应急预案制定；成功推动重点项目获《人民日报》《经济日报》等央媒报道。</li>
+                            <li><strong>赛事策划与内容输出</strong>：作为主创人员之一策划并完成两届国家电网品牌故事大赛参赛作品，带领团队完成<strong>脚本创作、视频拍摄与后期制作</strong>全流程把控；<strong>2023 年、2024 年连续两年斩获金奖</strong>，作品被纳入国家电网企业文化培训教材。</li>
+                            <li><strong>代表性成果</strong>：累计推动重点工程获央媒报道&nbsp;<strong>40 余次</strong>，成功申报&nbsp;<strong>3 项</strong>省部级以上荣誉。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 杭州喜大科技有限公司（第二段） -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <h3>总经理助理</h3>
+                        <span class="company">杭州喜大科技有限公司</span>
+                        <span class="period">2021.02 – 2021.07</span>
+                    </div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li><strong>总经理日常事务协助</strong>：协助总经理处理日程安排、会议组织与跨部门协调事务，作为核心对接人牵头跨部门协同项目推进，涵盖年度预算审批、新业务线启动及组织架构优化，协调市场、财务、法务、运营等 8 个部门，确保信息对齐与资源快速整合，项目平均推进效率提升 40%。</li>
+                            <li><strong>客户开发与商务对接</strong>：协助总经理新客户资源拓展与关系维护，熟悉从意向沟通、合同签署到落地执行的完整业务链条，具备独立推进商务合作的能力。在岗期间个人累计开拓并签约优质客户 6 家，年贡献合同额超 100 万元，客户续约率达 87%。</li>
+                            <li><strong>高质量文案与商业方案输出</strong>：参与设计标准化招商流程文档、合同模板库及相关品牌渠道管理方案，覆盖 90% 常规合作场景，熟悉反垄断法以及商标法，显著降低法务审核时长 40%，提升签约效率。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 杭州郅诚企业管理咨询有限公司 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <h3>项目助理</h3>
+                        <span class="company">杭州郅诚企业管理咨询有限公司</span>
+                        <span class="period">2020.08 – 2021.01</span>
+                    </div>
+                    <div class="timeline-body">
+                        <ul>
+                            <li><strong>作为项目助理支撑3场大型课程培训活动全流程落地</strong>，统筹市场、设计、采购及外部供应商团队，平均协调 8个以上跨部门协作节点，确保需求传递准确率 98%以上，活动执行准时率达 98%。</li>
+                            <li>参与完成活动全案策划，<strong>制定包含关键节点的详细时间表</strong>，推动项目提前交付；通过比价分析与供应链优化，<strong>为软性物料采购节省预算 7.6 万元</strong>（占比 13%），并完成 100%订单准时下单。</li>
+                            <li>现场统筹管理超 200 人规模活动，<strong>协调 8 个执行小组、12 类物料布置与 15 个岗位人员调度</strong>，实现活动顺利执行。</li>
+                            <li>活动结束后 48 小时内输出结构化战报，<strong>量化呈现参与人数增长 47%、社交媒体曝光量提升 1.2 倍</strong>，复盘报告被甲方列为年度标杆案例，<strong>连续 3 次获客户书面表扬</strong>。</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== 项目经历 ===== -->
+        <section id="section-projects" class="content-section">
+            <h2 class="section-title">项目经历</h2>
+            <p class="section-subtitle">国家重点工程品牌传播全流程管理</p>
+
+            <div class="project-grid">
+
+                <!-- 白鹤滩—浙江工程 -->
+                <div class="project-card">
+                    <h3>白鹤滩—浙江 ±800kV 特高压直流输电工程</h3>
+                    <p class="project-meta">国家"西电东送"重点工程</p>
+                    <p class="project-period">2021.10 – 2022.12</p>
+                    <ul>
+                        <li><strong>全周期品牌传播策划</strong>：制定分阶段传播策略（立项期、建设期、投运期），统筹撰写并发布新闻稿件 35 篇，其中 12 篇被《人民日报》、新华社、央视等中央级媒体采用，30 余次在权威媒体发声，3 次登上央视《新闻联播》，在权威媒体刊发报道 70 余篇，阅读量超亿次</li>
+                        <li><strong>多形式内容制作与分发</strong>：策划制作海报、短视频、纪录片、H5 互动页面等主题视觉内容共 8 套，通过@国家电网、@人民日报、@国资小新、@地球知识局等官方账号矩阵推送，单条最高阅读量&nbsp;<strong>10 万+</strong></li>
+                    </ul>
+                </div>
+
+                <!-- 建德500千伏输变电工程 -->
+                <div class="project-card">
+                    <h3>建德 500kV 输变电工程</h3>
+                    <p class="project-meta">浙江"绿保稳"重点项目</p>
+                    <p class="project-period">2022.09 – 2024.05</p>
+                    <ul>
+                        <li>围绕"绿色建造""乡村振兴"策划系列宣传内容，累计撰写深度稿件 <span class="highlight-num">12</span> 篇、制作视频 <span class="highlight-num">3</span> 条。</li>
+                        <li>统筹投产通稿发布，推动项目获省市媒体报道 <span class="highlight-num">18</span> 篇次，实现属地媒体全覆盖。</li>
+                        <li>支撑申报电力建设智慧工程"五星案例"、中国电力优质工程及国家电网公司标杆工地，三项均成功获批</li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ===== 技能特长 ===== -->
+        <section id="section-skills" class="content-section">
+            <h2 class="section-title">技能特长</h2>
+            <p class="section-subtitle">硬技能 · 软技能 · 独特经历</p>
+
+            <div class="skills-grid">
+
+                <!-- 硬技能 -->
+                <div class="skill-category">
+                    <h3>🛠 硬技能</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>文案策划与内容运营</span><span>4年经验</span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
+                        <div class="skill-tags">
+                            <span class="skill-tag accent">品牌策划</span>
+                            <span class="skill-tag accent">新闻通稿</span>
+                            <span class="skill-tag accent">活动策划</span>
+                            <span class="skill-tag accent">合同合规</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>AI 赋能</span><span>工作流</span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+                        <div class="skill-tags">
+                            <span class="skill-tag accent">ChatGPT</span>
+                            <span class="skill-tag accent">Claude Code</span>
+                            <span class="skill-tag accent">Kimi</span>
+                            <span class="skill-tag accent">DeepSeek</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>视觉采集</span><span>单反/微单 + 无人机</span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">佳能/尼康系列</span>
+                            <span class="skill-tag">DJI 系列</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>后期制作</span><span>剪映</span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">粗剪 → 调色 → 字幕 → 音乐</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>市场研究</span><span>趋势 · 用户 · 竞品</span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">趋势分析</span>
+                            <span class="skill-tag">用户洞察</span>
+                            <span class="skill-tag">竞品调研</span>
+                            <span class="skill-tag">数据驱动决策</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 软技能 + 独特经历 -->
+                <div class="skill-category">
+                    <h3>🤝 软技能</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>跨部门协调与统筹</span><span></span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>活动全案策划与执行</span><span></span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label"><span>商务对接与合作推进</span><span></span></div>
+                        <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+                    </div>
+
+                    <div class="skill-item" style="margin-top:20px;">
+                        <h3 style="font-size:14px; margin-bottom:10px;">🌍 独特经历</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag accent">独自背包旅行超 300 天</span>
+                            <span class="skill-tag accent">自行车旅行累计 6,086 KM</span>
+                            <span class="skill-tag">骑行带队经验</span>
+                            <span class="skill-tag">徒步带队经验</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-item" style="margin-top:20px; padding-top:20px; border-top:1px solid #F0E8E0;">
+                        <h3 style="font-size:14px; margin-bottom:10px;">📜 其他特长</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag accent">普通话国家二级证书</span>
+                            <span class="skill-tag accent">黑龙江省 CUBA 篮球联赛第四名</span>
+                            <span class="skill-tag accent">C1驾照</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== 证书荣誉 ===== -->
+        <section id="section-certificates" class="content-section">
+            <h2 class="section-title">证书荣誉</h2>
+            <p class="section-subtitle">赛事获奖 · 成果认定 · 省部级荣誉</p>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🏆</div>
+                    <h4>国家电网品牌故事大赛 金奖</h4>
+                    <p>2023 年 · 2024 年连续两年斩获<br>作品纳入国网企业文化培训教材</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">⭐</div>
+                    <h4>电力建设智慧工程 "五星案例"</h4>
+                    <p>建德 500kV 输变电工程 · 成功获批</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🏅</div>
+                    <h4>中国电力优质工程</h4>
+                    <p>建德 500kV 输变电工程 · 成功获批</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📜</div>
+                    <h4>省部级以上荣誉 × 3 项</h4>
+                    <p>重点工程成果成功申报</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📰</div>
+                    <h4>央媒报道 40+ 篇次</h4>
+                    <p>人民日报 · 新华社 · 央视等</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🎯</div>
+                    <h4>媒体合作网络 118 家</h4>
+                    <p>央级媒体覆盖率 100%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 作品展示 ===== -->
+        <section id="section-portfolio" class="content-section">
+            <h2 class="section-title">作品展示</h2>
+            <p class="section-subtitle">相关品牌案例、视频作品、策划方案</p>
+            <div class="portfolio-grid">
+                <a class="portfolio-card" href="视频/media1.mp4" target="_blank">
+                    <img class="thumb" src="media/image4.png" alt="视频剪辑" loading="lazy">
+                    <div class="info">
+                        <h3>视频剪辑</h3>
+                        <p>国家电网品牌故事金奖《只此青绿 不止青绿》</p>
+                        <span class="play-link">▶ 播放视频</span>
+                    </div>
+                </a>
+                <a class="portfolio-card" href="媒体传播/index.html" target="_blank">
+                    <img class="thumb" src="media/image100.png" alt="媒体传播" loading="lazy">
+                    <div class="info">
+                        <h3>媒体传播</h3>
+                        <p>媒体报道全过程跟进</p>
+                        <span class="play-link">▶ 查看详情</span>
+                    </div>
+                </a>
+                <a class="portfolio-card" href="视频/山水建德 绿色建造.mp4" target="_blank">
+                    <img class="thumb" src="视频/6月8日-封面.jpg" alt="视频剪辑" loading="lazy">
+                    <div class="info">
+                        <h3>视频剪辑</h3>
+                        <p>山水建德 绿色建造</p>
+                        <span class="play-link">▶ 播放视频</span>
+                    </div>
+                </a>
+                <a class="portfolio-card" href="照片拍摄/index.html" target="_blank">
+                    <img class="thumb" src="照片拍摄/1.jpeg" alt="照片拍摄" loading="lazy">
+                    <div class="info">
+                        <h3>照片拍摄</h3>
+                        <p>照片精选</p>
+                        <span class="play-link">▶ 查看相册</span>
+                    </div>
+                </a>
+                <a class="portfolio-card" href="https://mp.weixin.qq.com/s/EynXxzsXyyDN7TEZHp_0Bg" target="_blank">
+                    <img class="thumb" src="640.jpg" alt="文案策划" loading="lazy">
+                    <div class="info">
+                        <h3>文案策划</h3>
+                        <p>项目部的故事</p>
+                        <span class="play-link">▶ 阅读文章</span>
+                    </div>
+                </a>
+                <a class="portfolio-card" href="品牌设计与活动/index.html" target="_blank">
+                    <img class="thumb" src="品牌设计与活动/8.jpg" alt="品牌设计/活动" loading="lazy">
+                    <div class="info">
+                        <h3>品牌设计/活动</h3>
+                        <p>品牌策划活动</p>
+                        <span class="play-link">▶ 查看作品</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <p>基于真实简历构建 · <span>❤</span> 感谢浏览</p>
+    </footer>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            /* ========== 1. 头像优先级探测 ==========
+             * 按顺序尝试 avatar.png → avatar.jpg → avatar.jpeg
+             * 任一成功即设为头像 src，加载失败则保持 CSS 占位样式 */
+            function initAvatar() {
+                var img = document.getElementById('avatar');
+                if (!img) return;
+                var formats = ['png', 'jpg', 'jpeg'];
+                var index = 0;
+
+                function tryNext() {
+                    if (index >= formats.length) {
+                        // 所有格式均失败，CSS 占位样式保持显示
+                        return;
+                    }
+                    var probe = new Image();
+                    probe.onload = function() {
+                        img.src = this.src;
+                        img.classList.add('loaded');   // 控制 img 显现，遮住 SVG 占位
+                    };
+                    probe.onerror = function() {
+                        index++;
+                        tryNext();
+                    };
+                    probe.src = 'avatar.' + formats[index];
+                }
+                tryNext();
+            }
+
+            /* ========== 2. 栏目切换 ========== */
+            function initTabs() {
+                var navItems = document.querySelectorAll('.nav-links li');
+                var sections = {};
+
+                // 建立 section 映射
+                document.querySelectorAll('.content-section').forEach(function(s) {
+                    sections[s.id] = s;
+                });
+
+                navItems.forEach(function(item) {
+                    item.addEventListener('click', function() {
+                        var sectionKey = this.dataset.section;
+                        if (!sectionKey) return;
+
+                        // 更新导航高亮
+                        navItems.forEach(function(n) { n.classList.remove('active'); });
+                        this.classList.add('active');
+
+                        // 切换内容区域（带动画）
+                        Object.keys(sections).forEach(function(key) {
+                            var el = sections[key];
+                            if (key === 'section-' + sectionKey) {
+                                el.classList.add('active');
+                            } else {
+                                el.classList.remove('active');
+                            }
+                        });
+
+                        // 移动端点击栏目后关闭菜单
+                        var navLinks = document.getElementById('navLinks');
+                        var hamburger = document.getElementById('hamburger');
+                        if (navLinks) navLinks.classList.remove('open');
+                        if (hamburger) hamburger.classList.remove('open');
+
+                        // 切换后触发技能条动画
+                        animateSkillBars();
+                    });
+                });
+            }
+
+            /* ========== 3. 移动端汉堡菜单（导航展开/收起） ========== */
+            function initHamburger() {
+                var hamburger = document.getElementById('hamburger');
+                var navLinks = document.getElementById('navLinks');
+                if (!hamburger || !navLinks) return;
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle('open');
+                    hamburger.classList.toggle('open');
+                });
+                // 点击主内容区域关闭菜单
+                document.querySelector('main').addEventListener('click', function() {
+                    navLinks.classList.remove('open');
+                    hamburger.classList.remove('open');
+                });
+            }
+
+            /* ========== 4. 技能进度条动画 ========== */
+            function animateSkillBars() {
+                var bars = document.querySelectorAll('.skill-bar-fill');
+                bars.forEach(function(bar) {
+                    var w = bar.getAttribute('data-width');
+                    if (w) {
+                        bar.style.width = w + '%';
+                    }
+                });
+            }
+
+            /* ========== 5. 首次加载时触发首页技能条 ========== */
+            function initFirstLoad() {
+                // 首页默认 visible，等 DOM 就绪后延迟触发动画确保可见
+                setTimeout(animateSkillBars, 200);
+            }
+
+            /* ========== 启动 ========== */
+            initAvatar();
+            initTabs();
+            initHamburger();
+            initFirstLoad();
+
+        })();
+    </script>
+
+</body>
+</html>

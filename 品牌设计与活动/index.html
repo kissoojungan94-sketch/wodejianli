@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌设计/活动 — 作品展示</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #F9F3EE;
+            color: #2C2C2C;
+            padding: 40px 24px;
+        }
+        h1 { font-size: 24px; margin-bottom: 8px; }
+        .sub { font-size: 14px; color: #8A8A8A; margin-bottom: 32px; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .gallery .item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .gallery .item img {
+            width: 100%;
+            display: block;
+        }
+        .back {
+            display: inline-block;
+            margin-top: 32px;
+            color: #D4A89E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back:hover { color: #C48E82; }
+    </style>
+</head>
+<body>
+    <h1>品牌设计/活动 — 品牌策划活动</h1>
+    <p class="sub">品牌活动视觉设计及现场记录</p>
+    <div class="gallery">
+        <div class="item"><img src="5.png" alt="品牌设计5" loading="lazy"></div>
+        <div class="item"><img src="6.png" alt="品牌设计6" loading="lazy"></div>
+        <div class="item"><img src="7.png" alt="品牌设计7" loading="lazy"></div>
+        <div class="item"><img src="19.jpg" alt="品牌设计8" loading="lazy"></div>
+        <div class="item"><img src="20.jpg" alt="品牌设计9" loading="lazy"></div>
+        <div class="item"><img src="21.jpg" alt="品牌设计10" loading="lazy"></div>
+    </div>
+    <a class="back" href="../index.html">← 返回简历</a>
+</body>
+</html>

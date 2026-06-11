@@ -142,6 +142,32 @@
         }
         .content-section.active { display: block; }
 
+        .basic-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .basic-item {
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .basic-label {
+            font-size: 12px;
+            color: #8A8A8A;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .basic-value {
+            font-size: 15px;
+            font-weight: 500;
+            color: #2C2C2C;
+        }
+
         @keyframes fadeUp {
             0% { opacity: 0; transform: translateY(12px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -632,6 +658,7 @@
             <div class="logo">安兴惠</div>
             <ul class="nav-links" id="navLinks">
                 <li data-section="home" class="active">关于我</li>
+                <li data-section="basic">基本信息</li>
                 <li data-section="experience">工作经历</li>
                 <li data-section="projects">项目经历</li>
                 <li data-section="skills">技能特长</li>
@@ -689,6 +716,37 @@
                         <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z"/>
                     </svg>
                     <img id="avatar" alt="个人头像">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 基本信息 ===== -->
+        <section id="section-basic" class="content-section">
+            <h2 class="section-title">基本信息</h2>
+            <div class="basic-grid">
+                <div class="basic-item">
+                    <span class="basic-label">年龄</span>
+                    <span class="basic-value">28 岁 · 女 · 贵州贵定</span>
+                </div>
+                <div class="basic-item">
+                    <span class="basic-label">手机</span>
+                    <span class="basic-value">19185368325</span>
+                </div>
+                <div class="basic-item">
+                    <span class="basic-label">邮箱</span>
+                    <span class="basic-value">2453314101@qq.com</span>
+                </div>
+                <div class="basic-item">
+                    <span class="basic-label">毕业时间</span>
+                    <span class="basic-value">2016.09 – 2020.06</span>
+                </div>
+                <div class="basic-item">
+                    <span class="basic-label">学校</span>
+                    <span class="basic-value">黑龙江工程学院</span>
+                </div>
+                <div class="basic-item">
+                    <span class="basic-label">专业</span>
+                    <span class="basic-value">网络与新媒体</span>
                 </div>
             </div>
         </section>
